@@ -6,11 +6,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 const RatingContainer = styled.div`
   width: 25%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
-  bottom: 5px;
-  right: 15px;
+  bottom: 16px;
+  right: 24px;
 `;
 
 const MovieRating = styled.span`

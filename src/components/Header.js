@@ -8,6 +8,7 @@ const Header = styled.header`
   border-bottom: 5px solid black;
   margin-bottom: 20px;
 `;
+
 const Ul = styled.ul`
   width: 20%;
   height: 100%;
@@ -15,6 +16,7 @@ const Ul = styled.ul`
   justify-content: space-evenly;
   align-items: center;
 `;
+
 const Li = styled.li`
   font-size: 30px;
   list-style: none;
@@ -25,6 +27,7 @@ const Li = styled.li`
     cursor: pointer;
   }
 `;
+
 const Slink = styled(Link)`
   all: unset;
 `;

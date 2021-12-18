@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Poster } from './Poster';
-import { Rating } from './Rating';
 
-const Title = styled.h1`
-  margin: 0 20px;
+const Section = styled.section`
+  margin: 32px 20px;
 `;
 
-const Container = styled.div`
+const Title = styled.h1`
+  margin: 12px 20px;
+  font-size: 36px;
+`;
+
+const SlideContainer = styled.ul`
   margin: 10px 40px;
-  display: inline-flex;
+  display: flex;
   overflow: hidden;
-  //display: grid;
-  //grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  list-style: none;
 `;
 
 export const Grid = ({ title, info }) => {
   return (
-    <section>
+    <Section>
       <Title>{title}</Title>
-      <Container>
+      <SlideContainer>
         {info.map((movie) => {
           return (
             <Poster
@@ -28,7 +30,7 @@ export const Grid = ({ title, info }) => {
             ></Poster>
           );
         })}
-      </Container>
-    </section>
+      </SlideContainer>
+    </Section>
   );
 };
