@@ -22,11 +22,11 @@ const Img = styled.img`
 export const Poster = ({ image, rating }) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const handleMouseOver = () => {
+  const handleMouseEnter = () => {
     setIsHovering(true);
   };
 
-  const handleMouseOut = () => {
+  const handleMouseLeave = () => {
     setIsHovering(false);
   };
 
@@ -34,8 +34,8 @@ export const Poster = ({ image, rating }) => {
     <PosterContainer>
       <Img
         src={'http://image.tmdb.org/t/p/original/' + image}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
+        onMouseOver={handleMouseEnter}
+        onMouseOut={handleMouseLeave}
       ></Img>
       {isHovering && <Rating rating={rating}></Rating>}
     </PosterContainer>
