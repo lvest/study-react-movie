@@ -28,7 +28,7 @@ const Li = styled.li`
   }
 `;
 
-const Slink = styled(Link)`
+const StyleLink = styled(Link)`
   all: unset;
 `;
 
@@ -36,15 +36,15 @@ export default () => {
   return (
     <Header>
       <Ul>
-        <Slink to='/'>
+        <StyleLink to='/'>
           <Li>Movie</Li>
-        </Slink>
-        <Slink to='/tv'>
+        </StyleLink>
+        <StyleLink to='/tv'>
           <Li>TV</Li>
-        </Slink>
-        <Slink to='/search'>
+        </StyleLink>
+        <StyleLink to='/search'>
           <Li>Search</Li>
-        </Slink>
+        </StyleLink>
       </Ul>
     </Header>
   );

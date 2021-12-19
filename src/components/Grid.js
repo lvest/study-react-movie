@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Poster } from './Poster';
 import { SlideButton } from './SlideButton';
@@ -22,7 +22,7 @@ const SlideContainer = styled.ul`
   transform: ${(props) => props.distance && `translateX(${props.distance}px)`};
 `;
 
-export const Grid = ({ title, info }) => {
+export const Grid = ({ type, title, info }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [slideDistance, setDistance] = useState(0);
   const slideRef = useRef(null);
@@ -46,10 +46,6 @@ export const Grid = ({ title, info }) => {
     }
   };
 
-  useEffect(() => {
-    console.dir(slideRef.current);
-  }, [slideDistance]);
-
   return (
     <Section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Title>{title}</Title>
@@ -59,6 +55,7 @@ export const Grid = ({ title, info }) => {
         {info.map((movie) => {
           return (
             <Poster
+              id={movie.id}
               image={movie.poster_path}
               rating={movie.vote_average}
             ></Poster>

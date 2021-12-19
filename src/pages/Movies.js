@@ -19,9 +19,9 @@ export const Movies = () => {
 
   return (
     <>
-      <Grid title={'Popular'} info={popular}></Grid>
-      <Grid title={'Top Rated'} info={topRated}></Grid>
-      <Grid title={'Upcoming'} info={upcoming}></Grid>
+      <Grid title='Popular' info={popular}></Grid>
+      <Grid title='Top Rated' info={topRated}></Grid>
+      <Grid title='Upcoming' info={upcoming}></Grid>
     </>
   );
 };
