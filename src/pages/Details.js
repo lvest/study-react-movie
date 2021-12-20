@@ -4,7 +4,7 @@ import { movieApi, tvApi } from '../api';
 import { Information } from '../components/Information';
 
 export const Details = () => {
-  const [details, getDetails] = useState();
+  const [details, getDetails] = useState(null);
   const { id } = useParams();
   const { pathname } = useLocation();
 

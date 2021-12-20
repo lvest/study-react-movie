@@ -4,14 +4,16 @@ import { Poster } from './Poster';
 import { SlideButton } from './SlideButton';
 
 const Section = styled.section`
-  margin: 32px 32px 32px 32px;
+  padding: 2% 1%;
   position: relative;
   overflow: hidden;
+  background-color: #2d2827;
 `;
 
 const Title = styled.h1`
   margin: 12px 20px;
   font-size: 36px;
+  color: whitesmoke;
 `;
 
 const SlideContainer = styled.ul`

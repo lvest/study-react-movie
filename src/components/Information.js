@@ -84,7 +84,6 @@ const Summary = styled.p`
 `;
 
 export const Information = ({ info }) => {
-  console.log(info);
   return (
     <Main>
       <BackdropImg

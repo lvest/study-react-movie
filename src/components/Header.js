@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
-  height: 10vh;
-  background: #494949;
+  height: 8vh;
+  background: #2d2827;
   border-bottom: 5px solid black;
 `;
 
@@ -20,7 +20,6 @@ const Li = styled.li`
   font-size: 30px;
   list-style: none;
   color: white;
-  padding: 30px;
   &:hover {
     background: pink;
     cursor: pointer;
