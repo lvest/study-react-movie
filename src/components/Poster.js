@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Rating } from './Rating';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router';
 
 const PosterContainer = styled.li`
   margin-right: 10px;
@@ -25,9 +24,8 @@ const StyleLink = styled(Link)`
   all: unset;
 `;
 
-export const Poster = ({ id, image, rating }) => {
+export const Poster = ({ type, id, image, rating }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const { pathname } = useLocation(); // currentPath 받아옴
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -37,11 +35,8 @@ export const Poster = ({ id, image, rating }) => {
     setIsHovering(false);
   };
 
-  // Poster 컴포넌트에서 각 영화의 id를 받아서 주소를 만듦
-  // Poster 컴포넌트 누르면 이동하니까 여기에 Link 생성
-
   return (
-    <StyleLink to={`${pathname === '/' ? '/movie' : pathname}/${id}`}>
+    <StyleLink to={`/${type}/${id}`}>
       <PosterContainer>
         <Img
           src={'http://image.tmdb.org/t/p/original/' + image}

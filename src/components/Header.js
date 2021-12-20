@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
+  width: 100vw;
   height: 8vh;
   background: #2d2827;
   border-bottom: 5px solid black;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 
 const Ul = styled.ul`

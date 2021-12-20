@@ -7,6 +7,14 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  body{
+    background-color: #2d2827;
+  }
+
+  main{
+    margin-top: 8vh;
+  }
 `;
 // ${reset}을 GlobalStyle 안에 쓰면 reset 됨
 

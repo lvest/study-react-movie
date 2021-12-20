@@ -18,10 +18,15 @@ export const Movies = () => {
   }
 
   return (
-    <>
-      <Grid title='Popular' info={popular}></Grid>
-      <Grid title='Top Rated' info={topRated}></Grid>
-      <Grid title='Upcoming' info={upcoming}></Grid>
-    </>
+    <main>
+      <Grid type='movie' title='Popular' info={popular} isSlide={true}></Grid>
+      <Grid
+        type='movie'
+        title='Top Rated'
+        info={topRated}
+        isSlide={true}
+      ></Grid>
+      <Grid type='movie' title='Upcoming' info={upcoming} isSlide={true}></Grid>
+    </main>
   );
 };

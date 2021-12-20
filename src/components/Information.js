@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Main = styled.main`
-  height: 90vh;
+  height: 92vh;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;

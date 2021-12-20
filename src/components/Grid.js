@@ -24,7 +24,7 @@ const SlideContainer = styled.ul`
   transform: ${(props) => props.distance && `translateX(${props.distance}px)`};
 `;
 
-export const Grid = ({ type, title, info }) => {
+export const Grid = ({ type, title, info, isSlide, isSearchInvalid }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [slideDistance, setDistance] = useState(0);
   const slideRef = useRef(null);
@@ -51,19 +51,26 @@ export const Grid = ({ type, title, info }) => {
   return (
     <Section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Title>{title}</Title>
-      {isHovering && <SlideButton direction='prev' handleSlide={handleSlide} />}
-      {isHovering && <SlideButton direction='next' handleSlide={handleSlide} />}
-      <SlideContainer ref={slideRef} distance={slideDistance}>
-        {info.map((movie) => {
-          return (
-            <Poster
-              id={movie.id}
-              image={movie.poster_path}
-              rating={movie.vote_average}
-            ></Poster>
-          );
-        })}
-      </SlideContainer>
+      {isSlide && isHovering && (
+        <SlideButton direction='prev' handleSlide={handleSlide} />
+      )}
+      {isSlide && isHovering && (
+        <SlideButton direction='next' handleSlide={handleSlide} />
+      )}
+      {!isSearchInvalid && (
+        <SlideContainer ref={slideRef} distance={slideDistance}>
+          {info.map((movie) => {
+            return (
+              <Poster
+                type={type}
+                id={movie.id}
+                image={movie.poster_path}
+                rating={movie.vote_average}
+              ></Poster>
+            );
+          })}
+        </SlideContainer>
+      )}
     </Section>
   );
 };

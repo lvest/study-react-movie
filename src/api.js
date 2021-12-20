@@ -40,6 +40,18 @@ export const movieApi = {
         return data;
       });
   },
+
+  getSearch: (string) => {
+    return fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${encodeURI(
+        string
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data.results;
+      });
+  },
 };
 
 export const tvApi = {
@@ -80,6 +92,18 @@ export const tvApi = {
       .then((res) => res.json())
       .then((data) => {
         return data;
+      });
+  },
+
+  getSearch: (string) => {
+    return fetch(
+      `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${encodeURI(
+        string
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data.results;
       });
   },
 };
