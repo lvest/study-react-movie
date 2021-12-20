@@ -9,7 +9,7 @@ import Header from './Header';
 
 export const Routers = () => {
   return (
-    <BrowserRouter basename='/react-movie'>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <GlobalStyle />
       <Header />
       <Routes>
