@@ -20,9 +20,9 @@ export const Tv = () => {
 
   return (
     <main>
-      <Grid type='tv' title='Popular' info={popular} />
-      <Grid type='tv' title='Top Rated' info={topRated} />
-      <Grid type='tv' title='Airing Today' info={airingToday} />
+      <Grid type='tv' title='Popular' info={popular} isSlide={true} />
+      <Grid type='tv' title='Top Rated' info={topRated} isSlide={true} />
+      <Grid type='tv' title='Airing Today' info={airingToday} isSlide={true} />
     </main>
   );
 };

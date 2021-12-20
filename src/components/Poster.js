@@ -42,6 +42,10 @@ export const Poster = ({ type, id, image, rating }) => {
           src={'http://image.tmdb.org/t/p/original/' + image}
           onMouseOver={handleMouseEnter}
           onMouseOut={handleMouseLeave}
+          onError={(event) =>
+            (event.target.src =
+              'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
+          }
         ></Img>
         {isHovering && <Rating rating={rating}></Rating>}
       </PosterContainer>

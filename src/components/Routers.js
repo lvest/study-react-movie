@@ -13,11 +13,11 @@ export const Routers = () => {
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route path='/' element={<Movies />}></Route>
-        <Route path='/movie/:id' element={<Details />}></Route>
-        <Route path='/tv' element={<Tv />}></Route>
-        <Route path='/tv/:id' element={<Details />}></Route>
-        <Route path='/search' element={<Search />}></Route>
+        <Route path='/react-movie' element={<Movies />}></Route>
+        <Route path='/react-movie/movie/:id' element={<Details />}></Route>
+        <Route path='/react-movie/tv' element={<Tv />}></Route>
+        <Route path='/react-movie/tv/:id' element={<Details />}></Route>
+        <Route path='/react-movie/search' element={<Search />}></Route>
       </Routes>
     </BrowserRouter>
   );
