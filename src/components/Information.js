@@ -84,37 +84,34 @@ const Summary = styled.p`
 `;
 
 export const Information = ({ info }) => {
-  const backdropPath = info.backdrop_path;
-  const posterPath = info.poster_path;
-  const title = info.original_title || info.original_name;
-  const releaseDate = info.release_date || info.last_air_date;
-  const releaseYear = releaseDate && releaseDate.split('-')[0];
-  const runtime = (info.runtime || info.episode_run_time) + ` min`;
-  const genres = info.genres && info.genres.map((obj) => obj.name + ' ');
-  const homeLink = info.homepage;
-  const language = info.original_language;
-  const summary = info.overview;
-
+  console.log(info);
   return (
     <Main>
       <BackdropImg
-        src={'http://image.tmdb.org/t/p/original/' + `${backdropPath}`}
+        src={
+          'http://image.tmdb.org/t/p/original/' + `${info && info.backdropPath}`
+        }
       ></BackdropImg>
       <BackdropColor></BackdropColor>
       <Container>
         <PosterImg
-          src={'http://image.tmdb.org/t/p/original/' + `${posterPath}`}
+          src={
+            'http://image.tmdb.org/t/p/original/' + `${info && info.posterPath}`
+          }
         />
         <InfoContainer>
-          <Title>{title}</Title>
+          <Title>{info && info.title}</Title>
           <BasicInfoContainer>
             <BasicInfo>
-              {releaseYear} ⚫ {runtime} ⚫ {genres} ⚫
+              {info && info.releaseDate.split('-')[0]} ⚫{' '}
+              {info && info.runtime + ` min`} ⚫ {info && info.genres} ⚫
             </BasicInfo>
-            <Anchor href={homeLink}>HOME</Anchor>
+            <Anchor href={info && info.homeLink} target='_blank'>
+              HOME
+            </Anchor>
           </BasicInfoContainer>
-          <Language>{language}</Language>
-          <Summary>{summary}</Summary>
+          <Language>{info && info.language}</Language>
+          <Summary>{info && info.summary}</Summary>
         </InfoContainer>
       </Container>
     </Main>

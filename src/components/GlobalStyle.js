@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 `;
 // ${reset}을 GlobalStyle 안에 쓰면 reset 됨

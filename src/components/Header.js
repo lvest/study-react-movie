@@ -6,7 +6,6 @@ const Header = styled.header`
   height: 10vh;
   background: #494949;
   border-bottom: 5px solid black;
-  margin-bottom: 20px;
 `;
 
 const Ul = styled.ul`

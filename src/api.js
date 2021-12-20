@@ -30,6 +30,16 @@ export const movieApi = {
         return data.results;
       });
   },
+
+  getDetails: (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
+      });
+  },
 };
 
 export const tvApi = {
@@ -60,6 +70,16 @@ export const tvApi = {
       .then((res) => res.json())
       .then((data) => {
         return data.results;
+      });
+  },
+
+  getDetails: (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
       });
   },
 };
