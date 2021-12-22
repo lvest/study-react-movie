@@ -26,13 +26,13 @@ export const Search = () => {
     <main>
       <SearchBar getSearchWord={getSearchWord} />
       <Grid
-        type='movie'
+        category='movie'
         title='Movie'
         info={movieList}
         isSearchInvalid={!searchWord && true}
       />
       <Grid
-        type={'tv'}
+        category='tv'
         title='Tv'
         info={tvList}
         isSearchInvalid={!searchWord && true}

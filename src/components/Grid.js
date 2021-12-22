@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Poster } from './Poster';
-import { SlideButton } from './SlideButton';
 
 const Section = styled.section`
   padding: 2% 1%;
@@ -16,60 +15,30 @@ const Title = styled.h1`
   color: whitesmoke;
 `;
 
-const SlideContainer = styled.ul`
+const Container = styled.ul`
   margin: 10px 20px;
+  width: 100%;
   display: flex;
-  list-style: none;
-  position: relative;
-  transform: ${(props) => props.distance && `translateX(${props.distance}px)`};
+  flex-wrap: wrap;
 `;
 
-export const Grid = ({ type, title, info, isSlide, isSearchInvalid }) => {
-  const [isHovering, setIsHovering] = useState(false);
-  const [slideDistance, setDistance] = useState(0);
-  const slideRef = useRef(null);
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
-  const handleSlide = (direction) => {
-    const SLIDE_END =
-      slideRef.current.scrollWidth - slideRef.current.clientWidth;
-
-    if (direction === 'prev') {
-      slideDistance < 0 && setDistance(slideDistance + 200);
-    } else {
-      Math.abs(slideDistance) < SLIDE_END && setDistance(slideDistance - 200);
-    }
-  };
-
+export const Grid = ({ category, title, info, isSearchInvalid }) => {
   return (
-    <Section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Section>
       <Title>{title}</Title>
-      {isSlide && isHovering && (
-        <SlideButton direction='prev' handleSlide={handleSlide} />
-      )}
-      {isSlide && isHovering && (
-        <SlideButton direction='next' handleSlide={handleSlide} />
-      )}
       {!isSearchInvalid && (
-        <SlideContainer ref={slideRef} distance={slideDistance}>
+        <Container>
           {info.map((movie) => {
             return (
               <Poster
-                type={type}
+                category={category}
                 id={movie.id}
                 image={movie.poster_path}
                 rating={movie.vote_average}
               ></Poster>
             );
           })}
-        </SlideContainer>
+        </Container>
       )}
     </Section>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { tvApi } from '../api';
-import { Grid } from '../components/Grid';
+import { Carousel } from '../components/Carousel';
 
 export const Tv = () => {
   const [popular, setPopular] = useState([]);
@@ -19,9 +19,9 @@ export const Tv = () => {
 
   return (
     <main>
-      <Grid type='tv' title='Popular' info={popular} isSlide={true} />
-      <Grid type='tv' title='Top Rated' info={topRated} isSlide={true} />
-      <Grid type='tv' title='Airing Today' info={airingToday} isSlide={true} />
+      <Carousel type='tv' title='Popular' info={popular}></Carousel>
+      <Carousel type='tv' title='Top Rated' info={topRated}></Carousel>
+      <Carousel type='tv' title='Airing Today' info={airingToday}></Carousel>
     </main>
   );
 };

@@ -24,7 +24,7 @@ const StyleLink = styled(Link)`
   all: unset;
 `;
 
-export const Poster = ({ type, id, image, rating }) => {
+export const Poster = ({ category, id, image, rating }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseEnter = () => {
@@ -36,7 +36,7 @@ export const Poster = ({ type, id, image, rating }) => {
   };
 
   return (
-    <StyleLink to={`/${type}/${id}`}>
+    <StyleLink to={`/${category}/${id}`}>
       <PosterContainer>
         <Img
           src={'http://image.tmdb.org/t/p/original/' + image}
