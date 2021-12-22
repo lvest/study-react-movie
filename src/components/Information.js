@@ -36,7 +36,11 @@ const Container = styled.div`
   justify-content: space-evenly;
 `;
 
-const PosterImg = styled.img``;
+const PosterImg = styled.img`
+  width: 30%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+`;
 
 const InfoContainer = styled.div`
   width: 60%;
@@ -84,35 +88,41 @@ const Summary = styled.p`
 `;
 
 export const Information = ({ info }) => {
-  return (
+  const PLACEHOLDER = '정보 없음';
+  return info ? (
     <Main>
       <BackdropImg
-        src={
-          'http://image.tmdb.org/t/p/original/' + `${info && info.backdropPath}`
+        src={'http://image.tmdb.org/t/p/original/' + `${info.backdropPath}`}
+        onError={(event) =>
+          (event.target.src = 'https://plchldr.co/i/1000x620?text=NO+POSTER')
         }
       ></BackdropImg>
       <BackdropColor></BackdropColor>
       <Container>
         <PosterImg
-          src={
-            'http://image.tmdb.org/t/p/original/' + `${info && info.posterPath}`
+          src={'http://image.tmdb.org/t/p/original/' + `${info.posterPath}`}
+          onError={(event) =>
+            (event.target.src = 'https://plchldr.co/i/290x540?text=NO+POSTER')
           }
         />
         <InfoContainer>
-          <Title>{info && info.title}</Title>
+          <Title>{info.title || PLACEHOLDER}</Title>
           <BasicInfoContainer>
             <BasicInfo>
-              {info && info.releaseDate.split('-')[0]} ⚫{' '}
-              {info && info.runtime + ` min`} ⚫ {info && info.genres} ⚫
+              {info.releaseDate.split('-')[0] || PLACEHOLDER} ⚫{' '}
+              {info.runtime > 0 ? info.runtime + ` min` : PLACEHOLDER} ⚫{' '}
+              {info.genres.length ? info.genres : PLACEHOLDER}
             </BasicInfo>
-            <Anchor href={info && info.homeLink} target='_blank'>
-              HOME
-            </Anchor>
+            {info.homeLink && (
+              <Anchor href={info.homeLink} target='_blank'>
+                HOME
+              </Anchor>
+            )}
           </BasicInfoContainer>
-          <Language>{info && info.language}</Language>
-          <Summary>{info && info.summary}</Summary>
+          <Language>{info.language || PLACEHOLDER}</Language>
+          <Summary>{info.summary || PLACEHOLDER}</Summary>
         </InfoContainer>
       </Container>
     </Main>
-  );
+  ) : null;
 };

@@ -43,10 +43,10 @@ export const Poster = ({ type, id, image, rating }) => {
           onMouseOver={handleMouseEnter}
           onMouseOut={handleMouseLeave}
           onError={(event) =>
-            (event.target.src =
-              'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
+            (event.target.src = 'https://plchldr.co/i/150x250?text=NO+POSTER')
           }
-        ></Img>
+        />
+
         {isHovering && <Rating rating={rating}></Rating>}
       </PosterContainer>
     </StyleLink>
