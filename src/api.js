@@ -52,6 +52,25 @@ export const movieApi = {
         return data.results;
       });
   },
+  getCredit: (id, type) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (type === 'crew') return data.crew;
+        else return data.cast;
+      });
+  },
+  getVideos: (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data.results;
+      });
+  },
 };
 
 export const tvApi = {
@@ -100,6 +119,27 @@ export const tvApi = {
       `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${encodeURI(
         string
       )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data.results;
+      });
+  },
+
+  getCredit: (id, type) => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${API_KEY}&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (type === 'crew') return data.crew;
+        else return data.cast;
+      });
+  },
+
+  getVideos: (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_KEY}&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {

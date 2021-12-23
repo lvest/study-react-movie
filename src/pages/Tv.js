@@ -19,9 +19,13 @@ export const Tv = () => {
 
   return (
     <main>
-      <Carousel type='tv' title='Popular' info={popular}></Carousel>
-      <Carousel type='tv' title='Top Rated' info={topRated}></Carousel>
-      <Carousel type='tv' title='Airing Today' info={airingToday}></Carousel>
+      <Carousel category='tv' title='Popular' info={popular}></Carousel>
+      <Carousel category='tv' title='Top Rated' info={topRated}></Carousel>
+      <Carousel
+        category='tv'
+        title='Airing Today'
+        info={airingToday}
+      ></Carousel>
     </main>
   );
 };

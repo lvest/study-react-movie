@@ -14,7 +14,7 @@ const Header = styled.header`
 `;
 
 const Ul = styled.ul`
-  width: 20%;
+  width: 50%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -22,6 +22,7 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
+  margin-left: 10px;
   font-size: 30px;
   list-style: none;
   color: white;

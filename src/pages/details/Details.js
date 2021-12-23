@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router';
-import { movieApi, tvApi } from '../api';
-import { Information } from '../components/Information';
+import { movieApi, tvApi } from '../../api';
+import { Information } from '../../components/Information';
 
 export const Details = () => {
-  const [details, getDetails] = useState(null);
+  const [details, setDetails] = useState(null);
   const { id } = useParams();
   const { pathname } = useLocation();
 
@@ -15,7 +15,7 @@ export const Details = () => {
   async function fetchData() {
     if (pathname.startsWith('/movie')) {
       await movieApi.getDetails(id).then((data) => {
-        getDetails({
+        setDetails({
           backdropPath: data.backdrop_path,
           posterPath: data.poster_path,
           title: data.original_title,
@@ -29,7 +29,7 @@ export const Details = () => {
       });
     } else {
       await tvApi.getDetails(id).then((data) => {
-        getDetails({
+        setDetails({
           backdropPath: data.backdrop_path,
           posterPath: data.poster_path,
           title: data.original_name,
@@ -43,5 +43,5 @@ export const Details = () => {
       });
     }
   }
-  return <Information info={details} />;
+  return <Information info={details}></Information>;
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { DetailsTab } from './DetailsTab';
 
 const Main = styled.main`
   height: 92vh;
@@ -88,7 +89,7 @@ const Summary = styled.p`
 `;
 
 export const Information = ({ info }) => {
-  const PLACEHOLDER = '정보 없음';
+  const PLACEHOLDER = 'no data';
   return info ? (
     <Main>
       <BackdropImg
@@ -121,6 +122,7 @@ export const Information = ({ info }) => {
           </BasicInfoContainer>
           <Language>{info.language || PLACEHOLDER}</Language>
           <Summary>{info.summary || PLACEHOLDER}</Summary>
+          <DetailsTab></DetailsTab>
         </InfoContainer>
       </Container>
     </Main>

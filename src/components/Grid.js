@@ -20,6 +20,7 @@ const Container = styled.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
 `;
 
 export const Grid = ({ category, title, info, isSearchInvalid }) => {

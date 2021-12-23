@@ -19,9 +19,9 @@ export const Movies = () => {
 
   return (
     <main>
-      <Carousel type='movie' title='Popular' info={popular}></Carousel>
-      <Carousel type='movie' title='Top Rated' info={topRated}></Carousel>
-      <Carousel type='movie' title='Upcoming' info={upcoming}></Carousel>
+      <Carousel category='movie' title='Popular' info={popular}></Carousel>
+      <Carousel category='movie' title='Top Rated' info={topRated}></Carousel>
+      <Carousel category='movie' title='Upcoming' info={upcoming}></Carousel>
     </main>
   );
 };
